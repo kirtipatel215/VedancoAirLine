@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin User Setup Guide - Vedanco Air</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #fff;
+            padding: 40px 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #d4af37, #f4e5b0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            color: #888;
+            margin-bottom: 40px;
+            font-size: 1.1rem;
+        }
+
+        .step {
+            background: rgba(255, 255, 255, 0.05);
+            border-left: 4px solid #d4af37;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: 8px;
+            backdrop-filter: blur(10px);
+        }
+
+        .step-number {
+            background: #d4af37;
+            color: #1a1a2e;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-right: 15px;
+        }
+
+        .step-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .step-content {
+            padding-left: 55px;
+        }
+
+        .code-block {
+            background: #0d1117;
+            border: 1px solid #30363d;
+            padding: 20px;
+            border-radius: 6px;
+            margin: 15px 0;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 0.95rem;
+        }
+
+        .highlight {
+            background: rgba(212, 175, 55, 0.2);
+            padding: 2px 6px;
+            border-radius: 3px;
+            color: #d4af37;
+            font-weight: 600;
+        }
+
+        .warning {
+            background: rgba(255, 193, 7, 0.1);
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+
+        .success {
+            background: rgba(76, 175, 80, 0.1);
+            border-left: 4px solid #4caf50;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+
+        .button {
+            display: inline-block;
+            background: linear-gradient(135deg, #d4af37, #f4e5b0);
+            color: #1a1a2e;
+            padding: 12px 30px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 10px 0;
+            transition: transform 0.2s;
+        }
+
+        .button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3);
+        }
+
+        .checklist {
+            list-style: none;
+            padding-left: 55px;
+        }
+
+        .checklist li {
+            margin: 10px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .checklist li:before {
+            content: '☐';
+            position: absolute;
+            left: 0;
+            color: #d4af37;
+            font-size: 1.2rem;
+        }
+
+        .sql-result {
+            background: #1a472a;
+            border: 1px solid #2ea043;
+            padding: 10px 15px;
+            border-radius: 4px;
+            margin-top: 10px;
+            font-family: monospace;
+        }
+
+        .credentials {
+            background: rgba(212, 175, 55, 0.1);
+            border: 2px solid #d4af37;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .credentials-row {
+            display: flex;
+            gap: 20px;
+            margin: 10px 0;
+            font-family: 'Courier New', monospace;
+        }
+
+        .credentials-label {
+            color: #d4af37;
+            font-weight: bold;
+            min-width: 80px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>🔐 Admin User Setup Guide</h1>
+        <p class="subtitle">Follow these steps to create your admin account</p>
+
+        <div class="warning">
+            <strong>⚠️ Before You Start:</strong> Make sure you have access to your Supabase Dashboard. You'll need to
+            log in at <a href="https://app.supabase.com" style="color: #ffc107;">app.supabase.com</a>
+        </div>
+
+        <!-- STEP 1 -->
+        <div class="step">
+            <div class="step-title">
+                <span class="step-number">1</span>
+                <span>Access Supabase Dashboard</span>
+            </div>
+            <div class="step-content">
+                <p>Open your Supabase project:</p>
+                <a href="https://app.supabase.com/project/rdetkdeonjbxzeedkfwn" class="button" target="_blank">
+                    Open Supabase Project →
+                </a>
+                <p style="margin-top: 15px;">If the link doesn't work, manually navigate:</p>
+                <ol style="margin-left: 20px; margin-top: 10px;">
+                    <li>Go to <strong>app.supabase.com</strong></li>
+                    <li>Log in to your account</li>
+                    <li>Select project: <span class="highlight">rdetkdeonjbxzeedkfwn</span></li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- STEP 2 -->
+        <div class="step">
+            <div class="step-title">
+                <span class="step-number">2</span>
+                <span>Create Admin User</span>
+            </div>
+            <div class="step-content">
+                <p>In the Supabase Dashboard:</p>
+                <ul class="checklist">
+                    <li>Click <strong>Authentication</strong> in the left sidebar</li>
+                    <li>Click <strong>Users</strong> tab</li>
+                    <li>Click the <strong>"Add user"</strong> button (top right)</li>
+                    <li>Fill in the form with these exact values:</li>
+                </ul>
+
+                <div class="credentials">
+                    <div class="credentials-row">
+                        <span class="credentials-label">Email:</span>
+                        <span>admin@vedanco.com</span>
+                    </div>
+                    <div class="credentials-row">
+                        <span class="credentials-label">Password:</span>
+                        <span>admin123</span>
+                    </div>
+                    <div class="credentials-row">
+                        <span class="credentials-label">⚠️ IMPORTANT:</span>
+                        <span><strong>✅ Check "Auto Confirm User"</strong></span>
+                    </div>
+                </div>
+
+                <ul class="checklist" style="margin-top: 15px;">
+                    <li>Click <strong>"Create user"</strong></li>
+                    <li>Wait for confirmation message</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- STEP 3 -->
+        <div class="step">
+            <div class="step-title">
+                <span class="step-number">3</span>
+                <span>Set Admin Role (SQL)</span>
+            </div>
+            <div class="step-content">
+                <p>Now we need to give this user admin privileges:</p>
+                <ul class="checklist">
+                    <li>In Supabase Dashboard, click <strong>SQL Editor</strong> in the left sidebar</li>
+                    <li>Click <strong>"New query"</strong></li>
+                    <li>Copy and paste this SQL:</li>
+                </ul>
+
+                <div class="code-block">UPDATE profiles
+                    SET role = 'superadmin'
+                    WHERE email = 'admin@vedanco.com';</div>
+
+                <ul class="checklist">
+                    <li>Click <strong>"Run"</strong> (or press Cmd+Enter / Ctrl+Enter)</li>
+                    <li>You should see:</li>
+                </ul>
+
+                <div class="sql-result">
+                    ✓ Success. 1 row affected.
+                </div>
+
+                <div class="warning" style="margin-top: 20px;">
+                    <strong>⚠️ If you see "0 rows affected":</strong><br>
+                    The profile wasn't created automatically. Run this SQL instead:
+                    <div class="code-block" style="margin-top: 10px;">INSERT INTO profiles (id, email, first_name,
+                        last_name, role)
+                        SELECT id, email, 'Admin', 'User', 'superadmin'
+                        FROM auth.users
+                        WHERE email = 'admin@vedanco.com'
+                        ON CONFLICT (id) DO UPDATE SET role = 'superadmin';</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- STEP 4 -->
+        <div class="step">
+            <div class="step-title">
+                <span class="step-number">4</span>
+                <span>Verify & Test</span>
+            </div>
+            <div class="step-content">
+                <p>Let's verify everything is set up correctly:</p>
+
+                <p style="margin-top: 15px;"><strong>In Supabase SQL Editor, run this query:</strong></p>
+                <div class="code-block">SELECT
+                    p.id,
+                    p.email,
+                    p.first_name,
+                    p.last_name,
+                    p.role,
+                    u.email_confirmed_at
+                    FROM profiles p
+                    LEFT JOIN auth.users u ON u.id = p.id
+                    WHERE p.email = 'admin@vedanco.com';</div>
+
+                <p style="margin-top: 15px;">You should see <span class="highlight">role = 'superadmin'</span> in the
+                    results.</p>
+
+                <div class="success" style="margin-top: 20px;">
+                    <strong>✅ Now test the login:</strong>
+                    <ol style="margin-left: 20px; margin-top: 10px;">
+                        <li>Go to your app: <strong>http://localhost:3000</strong></li>
+                        <li>Navigate to the admin login page</li>
+                        <li>Login with:
+                            <div style="margin-top: 10px;">
+                                Email: <span class="highlight">admin@vedanco.com</span><br>
+                                Password: <span class="highlight">admin123</span>
+                            </div>
+                        </li>
+                        <li>You should be logged in successfully! 🎉</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+        <!-- TROUBLESHOOTING -->
+        <div class="step">
+            <div class="step-title">
+                <span class="step-number">?</span>
+                <span>Troubleshooting</span>
+            </div>
+            <div class="step-content">
+                <p><strong>If login still fails:</strong></p>
+                <ol style="margin-left: 20px; margin-top: 10px;">
+                    <li><strong>Clear browser cache:</strong> Press Cmd+Shift+R (Mac) or Ctrl+Shift+R (Windows)</li>
+                    <li><strong>Check the error message:</strong> It should now show specific errors like:
+                        <ul style="margin-left: 20px; margin-top: 5px;">
+                            <li>"Invalid email or password" → Wrong credentials or user doesn't exist</li>
+                            <li>"Profile Error" → Profile wasn't created (use the INSERT query above)</li>
+                            <li>"Access Denied" → Role wasn't set correctly (re-run UPDATE query)</li>
+                        </ul>
+                    </li>
+                    <li><strong>Verify Supabase URL/Key:</strong> Check your <code>.env</code> file matches Supabase
+                        Dashboard settings</li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="success" style="margin-top: 40px; text-align: center; font-size: 1.1rem;">
+            <strong>Need help?</strong> Check the browser console (F12) for detailed error messages or let me know what
+            error you're seeing!
+        </div>
+    </div>
+</body>
+
+</html>

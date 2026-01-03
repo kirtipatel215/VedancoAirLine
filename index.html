@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vedanco Air | Ultra-Premium Private Aviation</title>
+
+  <!-- Google Fonts: Montserrat (Headers) & Inter (UI/Numbers) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap"
+    rel="stylesheet">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            // Champagne Gold Palette
+            gold: {
+              50: '#FBF8F2',
+              100: '#F5EEDA',
+              200: '#EBD9AC',
+              300: '#E0C07D',
+              400: '#D4A853',
+              500: '#D4AF37', // Classic Champagne Gold
+              600: '#AA8C2C',
+              700: '#806921',
+              800: '#554616',
+              900: '#2B230B',
+            },
+            // Deep Charcoal & Midnight Navy
+            charcoal: {
+              50: '#F6F6F6',
+              100: '#E7E7E7',
+              200: '#D1D1D1',
+              300: '#B0B0B0',
+              400: '#888888',
+              500: '#6D6D6D',
+              600: '#5D5D5D',
+              700: '#4F4F4F',
+              800: '#454545',
+              900: '#121212', // Deep Charcoal Background
+              950: '#0A0A0A', // Almost Black
+            },
+            midnight: {
+              50: '#E6E8EB',
+              100: '#C1C6CE',
+              200: '#9CA4B1',
+              300: '#778294',
+              400: '#526077',
+              500: '#2D3E5A',
+              600: '#243248',
+              700: '#1B2536',
+              800: '#121924',
+              900: '#0B1C33', // Midnight Navy Header/Sidebar
+              950: '#060E1A',
+            },
+            silver: {
+              500: '#C0C0C0',
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            serif: ['Montserrat', 'sans-serif'],
+          },
+          backgroundImage: {
+            'luxury-gradient': 'linear-gradient(135deg, #0B1C33 0%, #121212 100%)',
+            'gold-gradient': 'linear-gradient(135deg, #D4AF37 0%, #AA8C2C 100%)',
+          },
+          keyframes: {
+            fadeInUp: {
+              '0%': { opacity: '0', transform: 'translateY(20px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
+            },
+            shine: {
+              '0%': { backgroundPosition: '200% center' },
+              '100%': { backgroundPosition: '-200% center' },
+            }
+          },
+          animation: {
+            'fade-in-up': 'fadeInUp 1s ease-out forwards',
+            'shine': 'shine 4s linear infinite',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Custom Scrollbar - Minimalist Gold */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #121212;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #333;
+      border-radius: 3px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #D4AF37;
+    }
+
+    /* Glassmorphism Utilities */
+    .glass-panel {
+      background: rgba(18, 18, 18, 0.7);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .glass-sidebar {
+      background: rgba(11, 28, 51, 0.85);
+      /* Midnight Navy with opacity */
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-right: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .glass-input {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: white;
+      transition: all 0.2s ease;
+    }
+
+    .glass-input:focus {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: #D4AF37;
+      outline: none;
+    }
+
+    .text-glow {
+      text-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+    }
+
+    /* Smooth Scrolling */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: #121212;
+      /* Default Deep Charcoal */
+      color: #F6F6F6;
+      font-family: 'Inter', sans-serif;
+    }
+  </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "lucide-react": "https://esm.sh/lucide-react@^0.561.0",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "@google/genai": "https://esm.sh/@google/genai@^1.33.0",
+    "@supabase/supabase-js": "https://esm.sh/@supabase/supabase-js@^2.89.0"
+  }
+}
+</script>
+  <link rel="stylesheet" href="/index.css">
+</head>
+
+<body class="antialiased selection:bg-gold-500 selection:text-white">
+  <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+
+</html>
